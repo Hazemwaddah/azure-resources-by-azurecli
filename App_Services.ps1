@@ -53,7 +53,6 @@ az appservice plan create --name
  [--zone-redundant]
 #
 
-
 # Show app service plan:
 az appservice plan show [--ids]
                         [--name]

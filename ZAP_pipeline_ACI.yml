@@ -1,0 +1,30 @@
+steps:
+- bash: |
+   sudo /home/zap/myagent/ZAP_2.12.0/./zap.sh -cmd -quickurl http://>[REDACTED-IP]:8082 -quickout /logs/OWASP-ZAP-Report.xml -quickprogress
+   true
+   
+   
+  displayName: 'Bash Script'
+
+
+steps:
+- powershell: |
+   $XslPath = "/logs/OWASPToNUnit3.xslt"
+   $XmlInputPath = "/logs/OWASP-ZAP-Report.xml"
+   $XmlOutputPath = "/logs/Converted-OWASP-ZAP-Report.xml"
+   $XslTransform = New-Object System.Xml.Xsl.XslCompiledTransform
+   $XslTransform.Load($XslPath)
+    $XslTransform.Transform($XmlInputPath, $XmlOutputPath)
+   exit 0
+  displayName: 'ZAP XML to NUnit XML'
+
+
+steps:
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFormat: NUnit
+    testResultsFiles: '/logs/Converted-OWASP-ZAP-Report.xml'
+#
+
+# Path /logs is the file share in the storage account.

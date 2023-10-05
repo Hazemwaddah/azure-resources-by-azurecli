@@ -59,6 +59,6 @@ GET https://management.azure.com/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/provi
 
 
 curl https://thapi.azure-api.net/api/Products
-curl --header "Ocp-Apim-Subscription-Key: f3927f4f286a4c749f6f29cf12b72690" https://thapi.azure-api.net/api/Products
-curl --header "Ocp-Apim-Subscription-Key: [REDACTED]" https://thapi.azure-api.net/api/Products
+curl --header "Ocp-Apim-Subscription-Key: xxxxxxxxxxxxxxxxxxxxxxxxx" https://thapi.azure-api.net/api/Products
+curl --header "Ocp-Apim-Subscription-Key: xxxxxxxxxxxxxxxxxxxxxxxxx" https://thapi.azure-api.net/api/Products
 

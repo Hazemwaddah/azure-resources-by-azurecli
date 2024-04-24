@@ -11,4 +11,6 @@ docker-compose -f docker-compose.yml --compatibility up -d
 # Stop the containers and delete them:
 docker-compose -f docker-compose.yml --compatibility down --volumes
 
+# adding "--volumes" removes the containers after stopping the containers
+
 

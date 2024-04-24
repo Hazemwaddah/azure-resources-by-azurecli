@@ -12,7 +12,3 @@ docker-compose -f docker-compose.yml --compatibility up -d
 docker-compose -f docker-compose.yml --compatibility down --volumes
 
 
-
-
-git config --global user.name "Hazem Waddah"
-git config --global user.email hazemwaddah@gmail.com

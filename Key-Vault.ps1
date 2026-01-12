@@ -66,16 +66,16 @@ az keyvault secret show-deleted [--id]
 
 
 # List all soft-delted key vaults:
-az keyvault list-deleted --subscription >[REDACTED-SUBSCRIPTION-ID] \
+az keyvault list-deleted --subscription [REDACTED-SUBSCRIPTION-ID] \
  --resource-type vault
 #
 
 # Recover a soft-deleted key vault:
-az keyvault recover --subscription >[REDACTED-SUBSCRIPTION-ID] \
+az keyvault recover --subscription [REDACTED-SUBSCRIPTION-ID] \
  -n kv-tst
 #
 
 # Purge a soft-deleted key vault:
-az keyvault purge --subscription >[REDACTED-SUBSCRIPTION-ID] \
+az keyvault purge --subscription [REDACTED-SUBSCRIPTION-ID] \
  -n th-kv-testing
 #

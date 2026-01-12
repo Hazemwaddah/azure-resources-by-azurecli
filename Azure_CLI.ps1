@@ -67,7 +67,7 @@ az role assignment create --assignee "{assignee}" --role "{roleNameOrId}" --subs
 az role assignment create --assignee "{assignee}" --role "{roleNameOrId}" --scope "/providers/Microsoft.Management/managementGroups/{managementGroupName}"
 # Examples Assign a user at resource group scope
 az role assignment create --assignee "patlong@contoso.com" --role "Virtual Machine Contributor" --resource-group "pharma-sales"
-az role assignment create --assignee 80e6f41a-921b-4bf0-b841-de00c1aec695 --scope "/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/resourceGroups/rg-azure-b2c-gwc/providers/Microsoft.AzureActiveDirectory/b2cDirectories/myappinc.onmicrosoft.com" --role "Contributor"
+az role assignment create --assignee 80e6f41a-921b-4bf0-b841-de00c1aec695 --scope "/subscriptions/[REDACTED-SUBSCRIPTION-ID]/resourceGroups/rg-azure-b2c-gwc/providers/Microsoft.AzureActiveDirectory/b2cDirectories/myappinc.onmicrosoft.com" --role "Contributor"
 ##############################################################################################################################################
 ######################################################## List members of a group #################################################
 az ad group member list --group "cluster_users" --query "[].{displayName: displayName, userPrincipalName: userPrincipalName, objectId: objectId}" --output table

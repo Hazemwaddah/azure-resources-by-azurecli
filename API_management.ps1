@@ -51,10 +51,10 @@ az apim check-name -n THAPI
 az group delete -n rg-api --yes
 
 # Show a given soft-deleted instance by name
-GET https://management.azure.com/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/providers/Microsoft.ApiManagement/locations/NorthEurope/deletedservices/THAPI?api-version=2021-08-01
+GET https://management.azure.com/subscriptions/[REDACTED-SUBSCRIPTION-ID]/providers/Microsoft.ApiManagement/locations/NorthEurope/deletedservices/THAPI?api-version=2021-08-01
 
 # List all API management soft-deleted instances for a given subscription:
-GET https://management.azure.com/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/providers/Microsoft.ApiManagement/deletedservices?api-version=2021-08-01
+GET https://management.azure.com/subscriptions/[REDACTED-SUBSCRIPTION-ID]/providers/Microsoft.ApiManagement/deletedservices?api-version=2021-08-01
 
 
 

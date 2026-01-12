@@ -1,6 +1,6 @@
 steps:
 - bash: |
-   sudo /home/zap/myagent/ZAP_2.12.0/./zap.sh -cmd -quickurl http://>[REDACTED-IP]:8082 -quickout /logs/OWASP-ZAP-Report.xml -quickprogress
+   sudo /home/zap/myagent/ZAP_2.12.0/./zap.sh -cmd -quickurl http://[REDACTED-IP]:8082 -quickout /logs/OWASP-ZAP-Report.xml -quickprogress
    true
    
    

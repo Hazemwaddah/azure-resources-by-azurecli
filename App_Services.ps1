@@ -34,7 +34,7 @@ az group delete -n rg-waf --yes
 az group list -o table
 az account show --output table
 az account list -o table
-az account set -s >[REDACTED-SUBSCRIPTION-ID]
+az account set -s [REDACTED-SUBSCRIPTION-ID]
 # List all available frameworks:
 az webapp list-runtimes
 

@@ -6,13 +6,13 @@ owasp folder        Working  No Context
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py \
   -t http://>[REDACTED-URL] \
   -r OWASP-ZAP-Report.html
-#  -U >[REDACTED-USER]
+#  -U [REDACTED-USER]
 
 Full scan with context                        Working
 docker run --rm -p 8082:8082 -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py -d \
  -t http://mycompany-web-54:8082 -P 8082 \
  -n mycompany01.context \
- -U >[REDACTED-USER] \
+ -U [REDACTED-USER] \
  -c zap-casa-config.conf \
  -x OWASP-ZAP-Report.html
 #
@@ -21,7 +21,7 @@ Full scan with Context & Authentication          Working
 docker run --rm -p 8082:8082 -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py -d \
  -t http://mycompany-web-54:8082 -P 8082 \
  -n mycompany01.context \
- -U >[REDACTED-USER] \
+ -U [REDACTED-USER] \
  -c zap-casa-config.conf \
  -z "auth.include="http://mycompany-web-54:8082.*"" \
  -x OWASP-ZAP-Report.html
@@ -44,8 +44,8 @@ owasp folder        dev
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py -j \
   -t http://mycompany-web-54:8082 \
   -n mycompany01.context \
-  -U >[REDACTED-USER] \
-  -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username=">[REDACTED-USER]" auth.password=""" \
+  -U [REDACTED-USER] \
+  -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username="[REDACTED-USER]" auth.password=""" \
   -z "-config api.key=[REDACTED] -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true" \
   -r OWASP-ZAP-Report.html
 #
@@ -60,8 +60,8 @@ docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-wee
   -t http://>[REDACTED-URL] \
   -f openapi \
   -n mycompany01.context \
-  -U >[REDACTED-USER] \
-  -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username=">[REDACTED-USER]" auth.password=""" \
+  -U [REDACTED-USER] \
+  -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username="[REDACTED-USER]" auth.password=""" \
   -z "-config api.key=[REDACTED] -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true" \
   -r OWASP-ZAP-Report.html
 #
@@ -71,22 +71,22 @@ docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-wee
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py \
   -t http://>[REDACTED-URL] \
   -f openapi \
-  -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username=">[REDACTED-USER]" auth.password=""" \
+  -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username="[REDACTED-USER]" auth.password=""" \
   -z "-config api.key=[REDACTED] " \
   -r OWASP-ZAP-Report.html
 #
 
 
 docker run --rm -p 8082:8082 -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py -d \
- -t http://>[REDACTED-IP]:8082 \
+ -t http://[REDACTED-IP]:8082 \
  -n mycompany01.context \
- -U >[REDACTED-USER] \
+ -U [REDACTED-USER] \
  -c zap-casa-config.conf \
  -x OWASP-ZAP-Report.html
 #
 
 docker run --rm -p 8082:8082 -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py -d \
- -t http://>[REDACTED-IP]:8082
+ -t http://[REDACTED-IP]:8082
 #
 
 
@@ -94,10 +94,10 @@ docker run --rm -p 8082:8082 -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/z
 
 -z "auth.include="http://mycompany-web-54:8082.*"" \
 
--z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username=">[REDACTED-USER]" auth.password=""" \
+-z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username="[REDACTED-USER]" auth.password=""" \
 
 -e ZAP_AUTH_HEADER_VALUE='<<JWT TOKEN>>' \
--z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username=">[REDACTED-USER]" auth.password=""" \
+-z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username="[REDACTED-USER]" auth.password=""" \
 
 
 
@@ -144,7 +144,7 @@ docker run --rm -t owasp/zap2docker-weekly zap-full-scan.py \
 
 #
   -z "auth.loginurl=https://mycompany-web-54:8082/login.aspx \
-      auth.username=">[REDACTED-USER]" \
+      auth.username="[REDACTED-USER]" \
       auth.password="""
 #    --hook=C:/Users/Hazem/zap/auth_hook.py \
 #        -g gen.conf \
@@ -166,7 +166,7 @@ docker run --rm -v C:/Users/Hazem/zap/:/zap/wrk/:rw -t owasp/zap2docker-weekly z
   -x OWASP-ZAP-Report.xml \
   --hook=C:/Users/Hazem/zap/auth_hook.py \
   -z "auth.loginurl=https://mycompany-web-54:8082/login.aspx \
-      auth.username=">[REDACTED-USER]" \
+      auth.username="[REDACTED-USER]" \
       auth.password=""" 
 #
 
@@ -178,7 +178,7 @@ docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.
   -r scan-report.html \
   -x OWASP-ZAP-Report.xml \
   -z "auth.loginurl=https://mycompany-web-54:8082/login.aspx \
-      auth.username=">[REDACTED-USER]" \
+      auth.username="[REDACTED-USER]" \
       auth.password="""
 #  --hook=/zap/auth_hook.py \
 
@@ -195,8 +195,8 @@ find zap  -type f -exec chmod 777 {} \;
 sudo find /myagent  -type f -exec chmod 777 {} \;
 
 
-mail -s "Backup" -a /home/zap/scan-report.html >[REDACTED-EMAIL] < message.txt
-mail -s " scan-report.html" -a /home/zap/scan-report.html >[REDACTED-EMAIL] < message.txt
+mail -s "Backup" -a /home/zap/scan-report.html [REDACTED-EMAIL] < message.txt
+mail -s " scan-report.html" -a /home/zap/scan-report.html [REDACTED-EMAIL] < message.txt
 
 #  --hook=/zap/auth_hook.py \
 
@@ -212,7 +212,7 @@ docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.p
   -r testreport.html \
   --hook=/zap/auth_hook.py \
   -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx \
-      auth.username=">[REDACTED-USER]" \
+      auth.username="[REDACTED-USER]" \
       auth.password="""
 #
 

@@ -19,7 +19,7 @@ az container create -g RG-IMTD-PRD-001-DevOps \
  --command-line "/bin/bash -c './run.sh; tail -f /dev/null'"  
 #          tail -f /dev/null; 
 --azure-file-volume-account-name devopssaprd001 \
---azure-file-volume-account-key >[REDACTED-STORAGE-KEY] \
+--azure-file-volume-account-key [REDACTED-STORAGE-KEY] \
 --azure-file-volume-share-name devops-fs-prd-001 \
 --azure-file-volume-mount-path logs \
 
@@ -41,14 +41,14 @@ az container create -g RG-IMTD-PRD-001-DevOps \
   --vnet "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mycompany-Azure-Network/providers/Microsoft.Network/virtualNetworks/IMTD-PRD-001-Vnet" \
   --subnet "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mycompany-Azure-Network/providers/Microsoft.Network/virtualNetworks/IMTD-PRD-001-Vnet/subnets/IMTD-PRD-001-ACISubnet" \
   --azure-file-volume-account-name devopssaprd001 \
-  --azure-file-volume-account-key >[REDACTED-STORAGE-KEY] \
+  --azure-file-volume-account-key [REDACTED-STORAGE-KEY] \
   --azure-file-volume-share-name devops-fs-prd-002 \
   --azure-file-volume-mount-path zap \
   --command-line "tail -f /dev/null"
 #
 # Connect to Azure File shares
 # --azure-file-volume-account-name mycompanystg \
-# --azure-file-volume-account-key >[REDACTED-STORAGE-KEY] \
+# --azure-file-volume-account-key [REDACTED-STORAGE-KEY] \
 # --azure-file-volume-share-name devops-aci-prd-001 \
 # --azure-file-volume-mount-path logs \
 --vnet "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mycompany-Azure-Network/providers/Microsoft.Network/virtualNetworks/IMTD-PRD-001-Vnet" \
@@ -63,7 +63,7 @@ ACI_SHARE_NAME              devops-fs-prd-001
 ACI_STORAGE_ACCOUNT         devopssaprd001    
 TARGET_SCAN_ADDRESS         https://>[REDACTED-URL]/RRISDaily/login.aspx
 
-az container create -g %ACI_RESOURCE_GROUP% -n %ACI_INSTANCE_NAME% --image owasp/zap2docker-stable --ip-address public --ports 8080 --azure-file-volume-account-name mycompanystg --azure-file-volume-account-key >[REDACTED-STORAGE-KEY] --azure-file-volume-share-name devops-aci-prd-001 --azure-file-volume-mount-path /zap/wrk/ --command-line "zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.key=abcd -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true"
+az container create -g %ACI_RESOURCE_GROUP% -n %ACI_INSTANCE_NAME% --image owasp/zap2docker-stable --ip-address public --ports 8080 --azure-file-volume-account-name mycompanystg --azure-file-volume-account-key [REDACTED-STORAGE-KEY] --azure-file-volume-share-name devops-aci-prd-001 --azure-file-volume-mount-path /zap/wrk/ --command-line "zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.key=abcd -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true"
 exit 0
 
 az storage share create -g RG-IMTD-PRD-001-DevOps \

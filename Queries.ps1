@@ -167,11 +167,11 @@ securityresources
 | extend splitAffectedResourceId = split(affectedResourceId, "/")
 | extend resourceNameIndex = iff(array_length(splitAffectedResourceId) > 1, array_length(splitAffectedResourceId) - 1, 0)
 | extend affectedResourceName = iff(isAzure, splitAffectedResourceId[resourceNameIndex], iff(isempty(hostName), "Non-Azure", hostName))// Map subscription IDs to their names.
-| extend subscription_0 = case(subscriptionId =~ '>[REDACTED-SUBSCRIPTION-ID]', 'UAE - Subscription', '')
+| extend subscription_0 = case(subscriptionId =~ '[REDACTED-SUBSCRIPTION-ID]', 'UAE - Subscription', '')
 | extend subscriptionName = case(isnotempty(subscription_0), subscription_0, '')
 | extend isSubscription = array_length(splitAffectedResourceId) == 3 and affectedResourceId startswith '/subscriptions/'
 | extend affectedResourceName = iff(isSubscription, subscriptionName, affectedResourceName)
-| project-away isSubscription, subscriptionName, subscription_0| project-away resourceNameIndex, splitAffectedResourceId, hostName, isAzure| where affectedResourceName contains '/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/resourcegroups/rg-agent-build-gws/providers/microsoft.compute/virtualmachines/cicd-agent-gwc' or affectedResourceId contains '/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/resourcegroups/rg-agent-build-gws/providers/microsoft.compute/virtualmachines/cicd-agent-gwc'
+| project-away isSubscription, subscriptionName, subscription_0| project-away resourceNameIndex, splitAffectedResourceId, hostName, isAzure| where affectedResourceName contains '/subscriptions/[REDACTED-SUBSCRIPTION-ID]/resourcegroups/rg-agent-build-gws/providers/microsoft.compute/virtualmachines/cicd-agent-gwc' or affectedResourceId contains '/subscriptions/[REDACTED-SUBSCRIPTION-ID]/resourcegroups/rg-agent-build-gws/providers/microsoft.compute/virtualmachines/cicd-agent-gwc'
 | extend SeverityRank = case(
   properties.Severity == 'High', 3,
   properties.Severity == 'Medium', 2,
@@ -237,7 +237,7 @@ securityresources
     ,'20606e75-05c4-48c0-9d97-add6daa2109a'
     ,'1ff0b4c9-ed56-4de6-be9c-d7ab39645926'
     ,'050ac097-3dda-4d24-ab6d-82568e7a50cf') 
-        | where subscriptionId in (">[REDACTED-SUBSCRIPTION-ID]")
+        | where subscriptionId in ("[REDACTED-SUBSCRIPTION-ID]")
         | extend source = iff(type == "microsoft.security/assessments", trim(' ', tolower(tostring(properties.resourceDetails.Source))), dynamic(null))
         | extend resourceId = iff(type == "microsoft.security/assessments", trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
             (type == "microsoft.security/assessments" and (source =~ "aws" and isnotempty(tostring(properties.resourceDetails.ConnectorId)))), properties.resourceDetails.Id,
@@ -1127,7 +1127,7 @@ updates
 #region List All Updates needed for cicd-agent
 patchassessmentresources
 | where type =~ "microsoft.compute/virtualmachines/patchAssessmentResults/softwarePatches"
-| where id startswith "/subscriptions/>[REDACTED-SUBSCRIPTION-ID]/resourcegroups/rg-agent-build-gws/providers/microsoft.compute/virtualmachines/cicd-agent-gwc/patchAssessmentResults/latest/softwarePatches/"
+| where id startswith "/subscriptions/[REDACTED-SUBSCRIPTION-ID]/resourcegroups/rg-agent-build-gws/providers/microsoft.compute/virtualmachines/cicd-agent-gwc/patchAssessmentResults/latest/softwarePatches/"
 | project id, properties
 
 #endregion

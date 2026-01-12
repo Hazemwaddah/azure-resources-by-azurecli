@@ -7,12 +7,12 @@ http {
     include /etc/nginx/mime.types;
    server {
         listen 80 default_server;
-        server_name >[REDACTED-DOMAIN] api->[REDACTED-DOMAIN];
+        server_name [REDACTED-DOMAIN] api-[REDACTED-DOMAIN];
         return 301 http://$server_name$request_uri;
           }
    server {
         listen 443 ssl;
-        server_name >[REDACTED-DOMAIN] api->[REDACTED-DOMAIN];
+        server_name [REDACTED-DOMAIN] api-[REDACTED-DOMAIN];
         ssl_certificate /etc/nginx/ssl/backend-tls.crt;
         ssl_certificate_key /etc/nginx/ssl/backend-tls.key;
      location / {

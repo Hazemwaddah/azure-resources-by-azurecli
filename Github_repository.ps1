@@ -180,7 +180,7 @@ git push -u origin main
 
 
 # Generate ssh key for Github
-ssh-keygen -t ed25519 -C ">[REDACTED-EMAIL]"
+ssh-keygen -t ed25519 -C "[REDACTED-EMAIL]"
 
 # start the ssh-agent in the background
 eval "$(ssh-agent -s)"

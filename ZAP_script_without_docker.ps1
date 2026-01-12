@@ -26,7 +26,7 @@ sudo find /home/zap/ZAP_2.12.0/Results -type f -exec chmod 777 {} \;
 sudo ./zap.sh -cmd -quickurl https://www.mycompany.com -quickprogress 
 -quickout /home/zap/ZAP_2.12.0/Results/OWASP-ZAP-Report.html -quickprogress
 
-sudo ./zap.sh -cmd -quickurl http://>[REDACTED-IP]:8082 -quickout /home/zap/ZAP_2.12.0/Results/OWASP-ZAP-Report.html -quickprogress
+sudo ./zap.sh -cmd -quickurl http://[REDACTED-IP]:8082 -quickout /home/zap/ZAP_2.12.0/Results/OWASP-ZAP-Report.html -quickprogress
 
 ./zap.sh -cmd -quickurl https://www.mycompany.com -quickprogress -quickout /home/hazem/Documents/ZAP.html
 

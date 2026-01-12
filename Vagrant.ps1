@@ -26,7 +26,7 @@ scp -P $(vagrant port --guest 22) vagrant@127.0.0.1:/home/vagrant/user1.pem c:\U
 scp -P $(vagrant port --guest 22) vagrant@127.0.0.1:/home/vagrant/user1.pem c:\Users\Hazem\knife-repo\user1.pem
 
 
-https://dev.azure.com/mycompany/>[REDACTED-TOKEN]
+https://dev.azure.com/[REDACTED-ORG]/[REDACTED-TOKEN]
 
 
 

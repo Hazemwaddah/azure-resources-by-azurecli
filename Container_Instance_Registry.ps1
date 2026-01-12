@@ -61,7 +61,7 @@ ACI_LOCATION                westeurope
 ACI_RESOURCE_GROUP          RG-IMTD-PRD-001-DevOps
 ACI_SHARE_NAME              devops-fs-prd-001
 ACI_STORAGE_ACCOUNT         devopssaprd001    
-TARGET_SCAN_ADDRESS         https://>[REDACTED-URL]/RRISDaily/login.aspx
+TARGET_SCAN_ADDRESS         https://mycompany-web-54.mycompany.org/RRISDaily/login.aspx
 
 az container create -g %ACI_RESOURCE_GROUP% -n %ACI_INSTANCE_NAME% --image owasp/zap2docker-stable --ip-address public --ports 8080 --azure-file-volume-account-name mycompanystg --azure-file-volume-account-key [REDACTED-STORAGE-KEY] --azure-file-volume-share-name devops-aci-prd-001 --azure-file-volume-mount-path /zap/wrk/ --command-line "zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.key=abcd -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true"
 exit 0

@@ -13,10 +13,10 @@
 #  --subnet-prefixes 10.2.0.0/24
 
 az network private-dns zone create -g MyAzureResourceGroup \
-   -n api->[REDACTED-DOMAIN]
+   -n api-eptest.mycompany.com
 
 az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink  \
-   -z api->[REDACTED-DOMAIN] -v rg-privateendpoint-uae-vnet \
+   -z api-eptest.mycompany.com -v rg-privateendpoint-uae-vnet \
    -e true
 #
 
@@ -31,7 +31,7 @@ az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink  \
 # Create an additional DNS record
 az network private-dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z api->[REDACTED-DOMAIN] \
+  -z api-eptest.mycompany.com \
   -n api-eptest \
   -a 20.216.51.180
 #

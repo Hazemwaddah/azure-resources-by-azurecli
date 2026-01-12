@@ -96,11 +96,11 @@ az vm deallocate -n vm-pep-uae -g rg-privateendpoint-uae
 az vm start -n vm-pep-uae -g rg-privateendpoint-uae
 #######################################################   Monitor a VM   #############################################################
 # Example of listing IP addresses associated with a specific VM in your resource group.
-az vm list-ip-addresses --resource-group rg-rpa-tst-eus --name win19-rpa-proxy-tst-eus --subscription >[REDACTED-SUBSCRIPTION-ID]
+az vm list-ip-addresses --resource-group rg-rpa-tst-eus --name win19-rpa-proxy-tst-eus --subscription [REDACTED-SUBSCRIPTION-ID]
 # Example of setting auto-shutdown for a specific VM in your resource group.
-az vm auto-shutdown --resource-group rg-rpa-tst-eus --name win19-rpa-proxy-tst-eus --time 1730 --subscription >[REDACTED-SUBSCRIPTION-ID]
+az vm auto-shutdown --resource-group rg-rpa-tst-eus --name win19-rpa-proxy-tst-eus --time 1730 --subscription [REDACTED-SUBSCRIPTION-ID]
 #Example of listing the metric values for a specific VM in your resource group.
-az vm monitor metrics tail --resource-group rg-rpa-tst-eus --name win19-rpa-proxy-tst-eus --subscription >[REDACTED-SUBSCRIPTION-ID] -o table
+az vm monitor metrics tail --resource-group rg-rpa-tst-eus --name win19-rpa-proxy-tst-eus --subscription [REDACTED-SUBSCRIPTION-ID] -o table
 az vm monitor metrics tail [--name] [--resource-group] [--aggregation {Average, Count, Maximum, Minimum, Total}] [--dimension] [--end-time] [--filter] [--interval] [--metadata] [--metrics] [--namespace] [--offset] [--orderby] [--start-time] [--subscription] [--top]
 ##############################################################################################################################################
 #endregion

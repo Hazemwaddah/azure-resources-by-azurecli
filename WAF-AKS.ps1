@@ -41,7 +41,7 @@ az network application-gateway address-pool create \
   --frontend-port appGatewayFrontendPort \
   --resource-group rg-privateendpoint-uae \
   --gateway-name waf-aks \
-  --host-name >[REDACTED-DOMAIN]
+  --host-name eptest.mycompany.com
 #
 
 # Enable ingress controller on the kubernetes cluster:-

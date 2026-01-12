@@ -4,7 +4,7 @@ OWASP/ZAP
 For Windows
 owasp folder        Working  No Context
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-full-scan.py \
-  -t http://>[REDACTED-URL] \
+  -t http://mycompany-web-54.mycompany.org \
   -r OWASP-ZAP-Report.html
 #  -U [REDACTED-USER]
 
@@ -30,7 +30,7 @@ docker run --rm -p 8082:8082 -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/z
 API
 # owasp folder        Working  No Context
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py \
-  -t http://>[REDACTED-URL] \
+  -t http://mycompany-web-54.mycompany.org \
   -f openapi \
   -z "-config api.key=[REDACTED] " \
   -r OWASP-ZAP-Report.html
@@ -57,7 +57,7 @@ docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-wee
 
 owasp folder        dev
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py \
-  -t http://>[REDACTED-URL] \
+  -t http://mycompany-web-54.mycompany.org \
   -f openapi \
   -n mycompany01.context \
   -U [REDACTED-USER] \
@@ -69,7 +69,7 @@ docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-wee
 
 # Scanning API for only one page
 docker run --rm -v C:/Users/Hazem/zap/owasp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py \
-  -t http://>[REDACTED-URL] \
+  -t http://mycompany-web-54.mycompany.org \
   -f openapi \
   -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx auth.username="[REDACTED-USER]" auth.password=""" \
   -z "-config api.key=[REDACTED] " \
@@ -201,14 +201,14 @@ mail -s " scan-report.html" -a /home/zap/scan-report.html [REDACTED-EMAIL] < mes
 #  --hook=/zap/auth_hook.py \
 
 
-sudo docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://>[REDACTED-URL] -g gen.conf -x OWASP-ZAP-Report.xml -r scan-report.html
+sudo docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://mycompany-web-54.mycompany.org -g gen.conf -x OWASP-ZAP-Report.xml -r scan-report.html
 
 
-https://>[REDACTED-URL]
+https://mycompany-web-54.mycompany.org
 
 # Running a passive scan with automatic authentication.
 docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -I -j \
-  -t https://>[REDACTED-URL] \
+  -t https://mycompany-web-54.mycompany.org \
   -r testreport.html \
   --hook=/zap/auth_hook.py \
   -z "auth.loginurl=http://mycompany-web-54:8082/login.aspx \

@@ -16,6 +16,6 @@ kubectl create secret tls backend-tls --key="backend.key" --cert="backend.crt"
 
 
 kubectl exec -it website-deployment-766bc76dc8-vlfvs -- curl -k https://localhost:8443
-kubectl exec -it  -- curl -k https://>[REDACTED-DOMAIN]:9443
+kubectl exec -it  -- curl -k https://eptest.mycompany.com:9443
 kubectl get pods
 

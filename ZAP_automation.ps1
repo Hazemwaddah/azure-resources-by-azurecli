@@ -2,19 +2,19 @@
 ########################################################################################################
 #                   Use ZAP in daemon mode
 
-C:\Progra~1\OWASP\Zed/Attack/Proxy\.\zap.sh -daemon -quickurl http://>[REDACTED-URL] -quickout E:\zap\OWASP-ZAP-Report.xml -quickprogress
+C:\Progra~1\OWASP\Zed/Attack/Proxy\.\zap.sh -daemon -quickurl http://mycompany-web-54.mycompany.org -quickout E:\zap\OWASP-ZAP-Report.xml -quickprogress
 
 
 cd "C:\Progra~1\OWASP\Zed Attack Proxy\"
-.\zap.sh -daemon -quickurl http://>[REDACTED-URL] -quickout E:\zap\OWASP-ZAP-Report.xml -quickprogress
+.\zap.sh -daemon -quickurl http://mycompany-web-54.mycompany.org -quickout E:\zap\OWASP-ZAP-Report.xml -quickprogress
 
 # Bash
-./zap.sh -cmd -quickurl http://>[REDACTED-URL] -quickout /tmp/OWASP-ZAP-Report.html -quickprogress
+./zap.sh -cmd -quickurl http://mycompany-web-54.mycompany.org -quickout /tmp/OWASP-ZAP-Report.html -quickprogress
 ./zap.sh -cmd -quickurl https://www.mycompany.com -quickout /home/zap/ZAP_2_12_0/OWASP-ZAP-Report.html -quickprogress
 ./zap.sh -cmd -quickurl https://www.mycompany.com -quickprogress
 
 # PowerShell
-.\zap.sh -daemon -quickurl http://>[REDACTED-URL] -quickout C:\Users\Hazem\zap\OWASP-ZAP-Report.html -quickprogress
+.\zap.sh -daemon -quickurl http://mycompany-web-54.mycompany.org -quickout C:\Users\Hazem\zap\OWASP-ZAP-Report.html -quickprogress
 
 # After running this command, it's important to kill java process in order to be able to re-run it again later:
 # This command kills any process/task with the name java on it [Windows OS]:
@@ -47,15 +47,15 @@ docker run -t owasp/zap2docker-stable zap-baseline.py -t https://www.google.com 
 docker run -v C:\Users\Hazem\zap\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -cmd -autorun /zap/wrk/zap.yaml -g gen.conf -r report.html
 
 
-docker run --rm -v C:\Users\Hazem\zap\pipeline\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://>[REDACTED-URL] -g gen.conf -r baseline-report.html
-docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t http://>[REDACTED-URL] -g gen.conf -r full-scan-report.html
-docker run --rm -v C:\Users\Hazem\zap\pipeline\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-api-scan.py -t http://>[REDACTED-URL] -g gen.conf -r api-report.html
+docker run --rm -v C:\Users\Hazem\zap\pipeline\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t http://mycompany-web-54.mycompany.org -g gen.conf -r baseline-report.html
+docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t http://mycompany-web-54.mycompany.org -g gen.conf -r full-scan-report.html
+docker run --rm -v C:\Users\Hazem\zap\pipeline\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-api-scan.py -t http://mycompany-web-54.mycompany.org -g gen.conf -r api-report.html
 exit 0 # To prevent powershell script ending with exit 1 error. It's a bug in powershell
 
 docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap.sh -cmd -autorun /zap/wrk/zap.yaml
 
 
-docker run --rm -v C:\agent\_work\r1\a\_Hazem-Test\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t http://>[REDACTED-URL] -g gen.conf -r full-scan-report.html
+docker run --rm -v C:\agent\_work\r1\a\_Hazem-Test\:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t http://mycompany-web-54.mycompany.org -g gen.conf -r full-scan-report.html
 
 
 
